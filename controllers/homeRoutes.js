@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const { Post, User } = require('../models');
+const { Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll({
+    // Get all blogs and JOIN with user data
+    const blogData = await Blog.findAll({
       include: [
         {
           model: User,
@@ -14,11 +15,11 @@ router.get('/', async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('homepage', { 
-      posts, 
+      blogs, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
@@ -26,9 +27,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id, {
+    const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
@@ -37,10 +38,10 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
 
-    const post = postData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render('post', {
-      ...post,
+    res.render('blog', {
+      ...blog,
       logged_in: req.session.logged_in
     });
   } catch (err) {
@@ -54,7 +55,7 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Post }],
+      include: [{ model: Blog }],
     });
 
     const user = userData.get({ plain: true });

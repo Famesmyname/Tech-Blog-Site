@@ -1,13 +1,13 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const name = document.querySelector('#post-name').value.trim();
-  const comment = document.querySelector('#post-desc').value.trim();
+  const name = document.querySelector('#blog-name').value.trim();
+  const entry = document.querySelector('#blog-entry').value.trim();
 
-  if (name && needed_funding && comment) {
-    const response = await fetch(`/api/post`, {
+  if (name && entry) {
+    const response = await fetch(`/api/blogs`, {
       method: 'POST',
-      body: JSON.stringify({ name, comment }),
+      body: JSON.stringify({ name, entry }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -16,7 +16,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to create post');
+      alert('Failed to create blog');
     }
   }
 };
@@ -25,22 +25,22 @@ const delButtonHandler = async (event) => {
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
 
-    const response = await fetch(`/api/posts/${id}`, {
+    const response = await fetch(`/api/blogs/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
       document.location.replace('/profile');
     } else {
-      alert('Failed to delete post');
+      alert('Failed to delete blog');
     }
   }
 };
 
 document
-  .querySelector('.new-post-form')
+  .querySelector('.new-blog-form')
   .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.post-list')
+  .querySelector('.blog-list')
   .addEventListener('click', delButtonHandler);

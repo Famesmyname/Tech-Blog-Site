@@ -1,4 +1,4 @@
-header, .post:not(:last-child) {
+header, .blog:not(:last-child) {
   border-bottom: 1px solid #ccc;
 }
 
@@ -15,4 +15,16 @@ header, .post:not(:last-child) {
 .no-button:hover {
   color: #065b83;
   text-decoration: underline;
+}
+
+.dollar-amount {
+  color: #056605;
+  font-weight: bold;
+  margin-left: -5px;
+}
+
+
+body {
+  background-color: #124883;
+  color: whitesmoke
 }
