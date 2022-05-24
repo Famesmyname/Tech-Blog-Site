@@ -1,14 +1,18 @@
 [
   {
-    "name": "Music Near Me",
-    "entry": "A mobile app that will send you notifications whenever a concert is playing in your area."
+    "name": "Status and CEOs",
+    "entry": "If elevators hadn't been invented, all the CEOs and important people would have their offices on the first floor as a sign of status"
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "entry": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!"
+    "name": "Observations of past of future",
+    "entry": "If lab-grown meat becomes the norm, our children and grandchildren will probably think we're monsters for killing and eating animals"
   },
   {
-    "name": "Roll 'Em Up",
-    "entry": "A game for Windows and macOS where players move a ball through a series of increasingly challenging mazes."
+    "name": "Ugly Duckling",
+    "entry": "The part of The Ugly Duckling no one ever mentions is that, after a lifetime of bullying, the duckling grows into a swan, the undisputed biggest asshole of the bird kingdom."
+  },
+  {
+    "name": "More Human than we Thought",
+    "entry": "We laugh at dogs getting excited when they hear a bark on TV, but if TV was a nonstop stream of unintelligible noises and then someone suddenly spoke to you in your language, you'd be pretty damn startled too."
   }
 ]
